@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact SupportIQ | Start a Home Care Enquiry</title>
+    <meta
+      name="description"
+      content="Contact SupportIQ to discuss home care, supported living, complex healthcare, learning disability and autism support."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="SupportIQ home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">
+          <strong>SupportIQ</strong>
+          <span>Support That Understands</span>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open navigation"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#stories">Stories</a>
+        <a href="index.html#team">Team</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a class="button button--ghost header-cta" href="#enquiry-form">Open form</a>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="hero__light hero__light--pink" aria-hidden="true"></div>
+        <div class="hero__light hero__light--cyan" aria-hidden="true"></div>
+        <div class="page-hero__grid">
+          <div class="contact-page__hero" data-reveal>
+            <p class="eyebrow">Contact SupportIQ</p>
+            <h1>Tell us about the support you need and we will take it from there.</h1>
+            <p>
+              Use the form below to start an enquiry about home care, supported
+              living, complex healthcare, learning disability and autism support,
+              or a more tailored care package.
+            </p>
+          </div>
+
+          <div class="contact-page__photo" data-reveal>
+            <img
+              src="assets/care-kitchen.jpg"
+              alt="A calm home care conversation taking place around a kitchen table"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="contact-shell">
+          <div class="contact-form-card" data-reveal>
+            <div class="contact-form-card__intro">
+              <p class="eyebrow">Enquiry Form</p>
+              <h2 id="enquiry-form">Start your conversation</h2>
+              <p>
+                Share a few details and SupportIQ can understand the setting, the
+                type of support needed and the best way to contact you.
+              </p>
+            </div>
+
+            <form class="contact-form" data-contact-form novalidate>
+              <div class="contact-form__grid">
+                <div class="field">
+                  <label for="full-name">Full name</label>
+                  <input id="full-name" name="name" type="text" autocomplete="name" required />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email address</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" />
+                </div>
+
+                <div class="field">
+                  <label for="postcode">Postcode or area</label>
+                  <input id="postcode" name="location" type="text" autocomplete="postal-code" />
+                </div>
+
+                <div class="field">
+                  <label for="service">Service needed</label>
+                  <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="Supported living">Supported living</option>
+                    <option value="Complex healthcare">Complex healthcare</option>
+                    <option value="Learning disability and autism support">Learning disability and autism support</option>
+                    <option value="Tailored home care">Tailored home care</option>
+                    <option value="Unsure / need advice">Unsure / need advice</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="contact-method">Preferred contact method</label>
+                  <select id="contact-method" name="preferredContact">
+                    <option value="Phone">Phone</option>
+                    <option value="Email">Email</option>
+                    <option value="Either">Either is fine</option>
+                  </select>
+                </div>
+
+                <div class="field field--full">
+                  <label for="message">How can we help?</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us who the support is for, the setting they are in, and anything important we should understand from the outset."
+                    required
+                  ></textarea>
+                </div>
+
+                <label class="checkbox field--full">
+                  <input type="checkbox" name="consent" required />
+                  <span>I am happy for SupportIQ to use these details to respond to my enquiry.</span>
+                </label>
+              </div>
+
+              <div class="contact-form__actions">
+                <button class="button" type="submit">Send enquiry</button>
+                <p class="form-status" data-form-status aria-live="polite"></p>
+              </div>
+            </form>
+          </div>
+
+          <aside class="contact-page__aside" data-reveal>
+            <h3>What helps most in an enquiry</h3>
+            <ul>
+              <li>Who the support is for and the home or living setting they are in.</li>
+              <li>Whether the enquiry is about supported living, home care or more complex healthcare.</li>
+              <li>Anything important around routine, communication, risks or outcomes.</li>
+            </ul>
+
+            <h3>What happens next</h3>
+            <p>
+              Once submitted, the enquiry is passed into SupportIQ's site contact flow
+              so the details can be reviewed and followed up appropriately.
+            </p>
+
+            <small>
+              If email delivery is configured later, this same form can route enquiries
+              straight into inboxes or a CRM without changing the page design.
+            </small>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>SupportIQ</p>
+      <p>Support That Understands. Home care, supported living and complex healthcare shaped around people.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

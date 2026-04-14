@@ -2,8 +2,14 @@ const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const revealItems = document.querySelectorAll("[data-reveal]");
+const contactForm = document.querySelector("[data-contact-form]");
+const formStatus = document.querySelector("[data-form-status]");
 
 const setHeaderState = () => {
+  if (!header) {
+    return;
+  }
+
   header.classList.toggle("is-scrolled", window.scrollY > 18);
 };
 
@@ -49,4 +55,63 @@ if ("IntersectionObserver" in window) {
   });
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
+}
+
+if (contactForm && formStatus) {
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+
+  const setStatus = (message, type = "") => {
+    formStatus.textContent = message;
+    formStatus.classList.remove("is-error", "is-success");
+
+    if (type) {
+      formStatus.classList.add(type);
+    }
+  };
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!contactForm.reportValidity()) {
+      setStatus("Please complete the required fields before sending.", "is-error");
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const payload = Object.fromEntries(formData.entries());
+    payload.consent = formData.get("consent") === "on";
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    setStatus("Sending your enquiry...");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "Something went wrong while sending your enquiry.");
+      }
+
+      contactForm.reset();
+      setStatus(result.message || "Thanks — your enquiry has been submitted successfully.", "is-success");
+    } catch (error) {
+      setStatus(error.message || "Something went wrong while sending your enquiry.", "is-error");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send enquiry";
+      }
+    }
+  });
 }
