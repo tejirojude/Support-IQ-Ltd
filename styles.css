@@ -686,6 +686,30 @@ button:focus-visible {
   object-fit: cover;
 }
 
+.media--living {
+  object-position: center 48%;
+}
+
+.media--access {
+  object-position: center 22%;
+}
+
+.media--dance {
+  object-position: center 36%;
+}
+
+.media--planning {
+  object-position: center 38%;
+}
+
+.media--team {
+  object-position: center 24%;
+}
+
+.media--contact {
+  object-position: center 30%;
+}
+
 .presence__content,
 .team__content {
   display: grid;
