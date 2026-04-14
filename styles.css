@@ -311,15 +311,19 @@ button:focus-visible {
 
 .hero__visual {
   position: relative;
-  min-height: 32rem;
+  display: grid;
+  justify-items: end;
+  align-content: center;
+  padding-block: 0.5rem;
 }
 
 .hero__logo-wrap {
-  position: absolute;
-  inset: 0;
+  position: relative;
   display: grid;
   place-items: center;
-  padding: 1.25rem;
+  width: min(100%, 32rem);
+  margin-left: auto;
+  padding: clamp(0.9rem, 1.8vw, 1.2rem);
   overflow: hidden;
   border-radius: calc(var(--radius) + 8px);
   background:
@@ -336,20 +340,20 @@ button:focus-visible {
 .hero__logo-wrap::after {
   content: "";
   position: absolute;
-  inset: 12% auto auto 16%;
-  width: 15rem;
-  height: 15rem;
+  inset: 10% auto auto 14%;
+  width: 12rem;
+  height: 12rem;
   border-radius: 50%;
-  background: rgba(255, 63, 164, 0.58);
-  filter: blur(60px);
+  background: rgba(255, 63, 164, 0.52);
+  filter: blur(54px);
   animation: drift 9s ease-in-out infinite;
 }
 
 .hero__logo-wrap::after {
-  inset: auto 10% 14% auto;
-  width: 16rem;
-  height: 16rem;
-  background: rgba(19, 184, 255, 0.56);
+  inset: auto 8% 12% auto;
+  width: 13rem;
+  height: 13rem;
+  background: rgba(19, 184, 255, 0.48);
   animation-duration: 11s;
   animation-direction: reverse;
 }
@@ -357,23 +361,13 @@ button:focus-visible {
 .hero__logo {
   position: relative;
   z-index: 1;
-  width: min(100%, 38rem);
+  width: 100%;
+  height: auto;
   filter:
     saturate(1.02)
     contrast(1.03)
     drop-shadow(0 1.6rem 3.2rem rgba(0, 0, 0, 0.28));
   animation: float 7s ease-in-out infinite;
-}
-
-.hero__note {
-  position: absolute;
-  right: 0;
-  bottom: 0.5rem;
-  max-width: 17rem;
-  margin: 0;
-  color: rgba(16, 24, 40, 0.68);
-  font-size: 0.95rem;
-  font-weight: 700;
 }
 
 .hero__light {
@@ -756,12 +750,13 @@ button:focus-visible {
   }
 
   .hero__visual {
-    min-height: 24rem;
+    justify-items: start;
+    padding-block: 0;
   }
 
-  .hero__note {
-    right: auto;
-    left: 0;
+  .hero__logo-wrap {
+    width: min(100%, 30rem);
+    margin-left: 0;
   }
 
   .service-row {
@@ -807,11 +802,11 @@ button:focus-visible {
   }
 
   .hero__visual {
-    min-height: 18rem;
+    padding-block: 0;
   }
 
-  .hero__logo {
-    width: min(100%, 26rem);
+  .hero__logo-wrap {
+    width: 100%;
   }
 
   .section {
