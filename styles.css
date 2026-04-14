@@ -778,10 +778,40 @@ button:focus-visible {
     width: calc(100vw - 1rem);
     margin-top: 0.5rem;
     padding: 0.85rem 1rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 0.75rem;
+  }
+
+  .brand__text strong {
+    font-size: 0.95rem;
   }
 
   .brand__text span {
-    display: none;
+    display: block;
+    font-size: 0.67rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .menu-toggle {
+    width: 3.15rem;
+    height: 3.15rem;
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 12px 30px rgba(27, 43, 72, 0.08);
+  }
+
+  .site-nav {
+    left: 0;
+    right: 0;
+    top: calc(100% + 0.55rem);
+    min-width: 0;
+    padding: 1rem 1.15rem 1.1rem;
+    justify-items: start;
   }
 
   .hero__grid,
@@ -793,19 +823,86 @@ button:focus-visible {
   }
 
   .hero__grid {
-    gap: 1.5rem;
+    gap: 1rem;
+  }
+
+  .hero {
+    padding-top: 6.6rem;
+    padding-bottom: 3rem;
   }
 
   .hero__visual {
+    order: -1;
+    justify-items: center;
     padding-block: 0;
   }
 
   .hero__logo-wrap {
+    width: min(100%, 17.5rem);
+    margin: 0 auto;
+  }
+
+  .hero__logo-wrap::before,
+  .hero__logo-wrap::after {
+    filter: blur(52px);
+  }
+
+  .hero__logo-wrap::before {
+    inset: 18% auto auto 16%;
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .hero__logo-wrap::after {
+    inset: auto 12% 16% auto;
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .hero__content {
+    max-width: none;
+  }
+
+  .hero h1 {
+    max-width: 10.5ch;
+    font-size: clamp(2.95rem, 15vw, 4.25rem);
+    line-height: 0.92;
+  }
+
+  .hero__lede {
+    max-width: none;
+    margin-top: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1.6rem;
+  }
+
+  .hero__actions .button {
     width: 100%;
+  }
+
+  .hero__highlights {
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero__highlights li {
+    max-width: none;
+    font-size: 0.98rem;
   }
 
   .section {
     padding: 4.5rem 0;
+  }
+
+  .section h2 {
+    font-size: clamp(2.25rem, 11vw, 3rem);
+    line-height: 0.96;
   }
 
   .section--dark .section__intro {
@@ -816,9 +913,34 @@ button:focus-visible {
     padding-bottom: 4.5rem;
   }
 
+  .statement {
+    gap: 1.5rem;
+  }
+
+  .statement__body,
+  .approach__lead,
+  .team__copy {
+    font-size: 0.98rem;
+  }
+
   .service-row,
   .team__item {
     gap: 1rem;
+  }
+
+  .service-row {
+    padding: 1.55rem 0;
+  }
+
+  .service-row__content h3,
+  .approach-point h3,
+  .journey-step h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-row__tag {
+    margin-top: 0.15rem;
+    font-size: 0.95rem;
   }
 
   .journey-step,
